@@ -1,0 +1,31 @@
+{
+  "name": "zemetric_rate_limiter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js", 
+    "dev": "nodemon server.js" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sanikarajpure/zemetric_rate_limiter.git"
+  },
+  "author": "Sanika Rajpure",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sanikarajpure/zemetric_rate_limiter/issues"
+  },
+  "homepage": "https://github.com/Sanikarajpure/zemetric_rate_limiter#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.6",
+    "express": "^4.21.1",
+    "http-status": "^2.0.0",
+    "xss-clean": "^0.1.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
