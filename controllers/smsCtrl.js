@@ -19,7 +19,8 @@ const sendSms = async (req, res) => {
     console.log(`Sending SMS to ${phoneNumber}: ${message}`);
 
     res.status(200).json({
-      message: "SMS sent successfully!",
+      success: true,
+      data: "SMS sent successfully!",
     });
   } catch (error) {
     console.error("Error sending SMS:", error);
