@@ -25,6 +25,7 @@
     "http-status": "^2.0.0",
     "mysql2": "^3.11.5",
     "sequelize": "^6.37.5",
+    "winston": "^3.17.0",
     "xss-clean": "^0.1.4"
   },
   "devDependencies": {
