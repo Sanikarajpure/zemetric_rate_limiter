@@ -1,4 +1,5 @@
 const { getViolationsInLastHour } = require("../services/rateLimit");
+const { ApiError } = require("../utils/apiError");
 
 const getRateLimitViolations = async (req, res, next) => {
   const { phoneNumber } = req.params;
