@@ -19,6 +19,11 @@ const getSmsStats = async (phoneNumber, ipAddress) => {
   const now = new Date();
   const oneMinuteAgo = new Date(now.getTime() - 60 * 1000);
   const oneDayAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+  const startOfToday = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate()
+  );
 
   try {
     // Count requests in the last minute for the same phone number + IP
@@ -39,8 +44,20 @@ const getSmsStats = async (phoneNumber, ipAddress) => {
       },
     });
 
+    const requestsToday = await SmsRequest.count({
+      where: {
+        ipAddress,
+        phoneNumber,
+        requestTime: {
+          [Op.gte]: startOfToday,
+          [Op.lt]: now,
+        },
+      },
+    });
+
     return {
       requestsLastMinute,
+      requestsToday,
       requestsLastDay,
     };
   } catch (error) {
