@@ -9,7 +9,7 @@ const getRateLimitViolations = async (req, res, next) => {
     return next(new ApiError(400, "Phone number is required."));
   }
 
-  // Basic phone number validation (example for 10-digit numbers)
+  // Basic phone number validation 
   const phoneNumberRegex = /^[0-9]{10}$/;
   if (!phoneNumberRegex.test(phoneNumber)) {
     return next(new ApiError(400, "Invalid phone number format."));

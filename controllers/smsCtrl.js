@@ -8,7 +8,11 @@ const sendSms = async (req, res) => {
     if (!phoneNumber || !message) {
       return next(new ApiError(400, "Phone number and message are required."));
     }
-
+    // Basic phone number validation
+    const phoneNumberRegex = /^[0-9]{10}$/;
+    if (!phoneNumberRegex.test(phoneNumber)) {
+      return next(new ApiError(400, "Invalid phone number format."));
+    }
     // Get the IP address of the client making the request
     const ipAddress = req.ip;
 
