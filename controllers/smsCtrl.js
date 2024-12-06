@@ -40,7 +40,11 @@ const getSmsStatistics = async (req, res, next) => {
   if (!phoneNumber || !ipAddress) {
     return next(new ApiError(400, "Phone number is required."));
   }
-
+  // Basic phone number validation
+  const phoneNumberRegex = /^[0-9]{10}$/;
+  if (!phoneNumberRegex.test(phoneNumber)) {
+    return next(new ApiError(400, "Invalid phone number format."));
+  }
   try {
     const stats = await getSmsStats(phoneNumber, ipAddress);
     res.status(200).json({
