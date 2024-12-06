@@ -4,8 +4,8 @@ const { ApiError } = require("../utils/apiError");
 const { createViolation } = require("../services/rateLimit");
 const logger = require("../utils/logger");
 
-const RATE_LIMIT_PER_MINUTE = process.env.LIMIT_PER_MINUTE;
-const RATE_LIMIT_PER_DAY = process.env.LIMIT_PER_DAY;
+const RATE_LIMIT_PER_MINUTE = process.env.LIMIT_PER_MINUTE || 3;
+const RATE_LIMIT_PER_DAY = process.env.LIMIT_PER_DAY || 10;
 
 const rateLimiter = () => {
   return async (req, res, next) => {
